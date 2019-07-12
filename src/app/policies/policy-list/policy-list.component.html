@@ -1,0 +1,12 @@
+<mat-accordion multi="true" *ngIf="policies.length > 0">
+  <mat-expansion-panel *ngFor="let policy of policies">
+    <mat-expansion-panel-header>
+      {{policy.policyName}} - {{policy.policyNumber}}  Premium Amount: Rs. {{policy.premiumAmount}}/-
+    </mat-expansion-panel-header>
+    <p>{{policy.policyNumber}}</p>
+    <mat-action-row>
+      <button mat-button color="primary">Edit</button>
+      <button mat-button color="warn">Delete</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>

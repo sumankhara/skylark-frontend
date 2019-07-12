@@ -1,0 +1,112 @@
+<mat-card>
+  <form (submit)="onAddPolicy(postForm)" #postForm="ngForm">
+    <mat-grid-list cols="2" rowHeight="85" gutterSize="100">
+      <mat-grid-tile>
+        <mat-form-field>
+          <input matInput type="text" name="policyName" placeholder="Policy Name" ngModel required #policyName="ngModel">
+          <mat-error *ngIf="policyName.invalid">Please enter a policy name</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field>
+          <input matInput name="policyNumber" placeholder="Policy Number" ngModel required #policyNumber="ngModel">
+          <mat-error *ngIf="policyNumber.invalid">Please enter a policy number</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field>
+          <input matInput type="text" name="premiumAmount" placeholder="Premium Amount" ngModel required #premiumAmount="ngModel">
+          <mat-error *ngIf="premiumAmount.invalid">Please enter a premium amount</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field>
+          <mat-label>Premium Mode</mat-label>
+          <select matNativeControl required name="premiumMode" ngModel #premiumMode="ngModel">
+            <option value="hly">Half Yearly</option>
+            <option value="monthly">Monthly</option>
+            <option value="yearly">Yearly</option>
+          </select>
+          <mat-error *ngIf="premiumMode.invalid">Please enter the mode of premium</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field>
+          <input matInput name="sumAssured" placeholder="Sum Assured" ngModel required #sumAssured="ngModel">
+          <mat-error *ngIf="sumAssured.invalid">Please enter the sum assured</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field>
+          <input matInput type="text" name="bonusAccrued" placeholder="Bonus Accrued" ngModel #bonusAccrued="ngModel">
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field>
+          <input matInput [matDatepicker]="startDate" name="startDate" placeholder="Start Date" ngModel #startDate="ngModel">
+          <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+          <mat-datepicker #startDate></mat-datepicker>
+          <mat-error *ngIf="startDate.invalid">Please enter the start date</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field>
+          <input matInput [matDatepicker]="endDate" name="endDate" placeholder="End Date" ngModel #endDate="ngModel">
+          <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+          <mat-datepicker #endDate></mat-datepicker>
+          <mat-error *ngIf="endDate.invalid">Please enter the end date</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field>
+          <input matInput type="text" name="policyTerm" placeholder="Policy Term" ngModel #policyTerm="ngModel">
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field>
+          <input matInput [matDatepicker]="nextDueDate" name="nextDueDate" placeholder="Next Due Date" ngModel #nextDueDate="ngModel">
+          <mat-datepicker-toggle matSuffix [for]="nextDueDate"></mat-datepicker-toggle>
+          <mat-datepicker #nextDueDate></mat-datepicker>
+          <mat-error *ngIf="nextDueDate.invalid">Please enter the next due date</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <br>
+    <mat-divider></mat-divider>
+    <br>
+    <mat-grid-list cols="3" rowHeight="100" gutterSize="100">
+      <mat-grid-tile>
+        <mat-form-field>
+            <input matInput type="text" name="agentName" placeholder="Agent Name" ngModel #agentName="ngModel">
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field>
+            <input matInput type="text" name="branchName" placeholder="Branch Name" ngModel #branchName="ngModel">
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field>
+            <input matInput type="text" name="agentPhone" placeholder="Agent Phone" ngModel #agentPhone="ngModel">
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field>
+          <mat-label>Premium Paid</mat-label>
+          <select matNativeControl required name="premiumPaid" ngModel #premiumPaid="ngModel">
+            <option value="paid">Paid</option>
+            <option value="notpaid">Not Paid</option>
+            <option value="terminated">Terminated</option>
+          </select>
+          <mat-error *ngIf="premiumPaid.invalid">Please enter the mode of premium</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <br><br>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit">Save Policy</button>
+  </form>
+</mat-card>
